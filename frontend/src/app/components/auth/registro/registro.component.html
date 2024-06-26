@@ -1,0 +1,61 @@
+<br><br><br><br>
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image">
+                    <img src="../../../../assets/img/avatar.png" width="441" height="604">
+                </div>
+                <div class="col-lg-7">
+                    <br><br>
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">¡ Crea tu Cuenta !</h1>
+                        </div>
+                        <form [formGroup]="form_registro" (ngSubmit)="registrar()" class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input formControlName="nombre" type="text" class="form-control form-control-user" id="nombre"
+                                        placeholder="Nombre">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input formControlName="apellido" type="text" class="form-control form-control-user" id="Apellido"
+                                        placeholder="Apellido">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input formControlName="usuario" type="text" class="form-control form-control-user" id="usuario"
+                                    placeholder="Usuario">
+                            </div>
+                            <div class="form-group">
+                                <input formControlName="correo" type="email" class="form-control form-control-user" id="correo"
+                                    placeholder="Correo Electronico">
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input formControlName="password" type="password" class="form-control form-control-user"
+                                        id="password" placeholder="Contraseña">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input formControlName="confirm_password" type="password" class="form-control form-control-user"
+                                        id="confirm_password" placeholder="Confirmacion Contraseña">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-user btn-block">
+                                Registra tu Cuenta
+                            </button>
+                            <hr>
+                        </form>
+                        <hr>
+                        <div class="text-center">
+                            <a class="small" (click)="navigateInicio()">Regresar al Inicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
