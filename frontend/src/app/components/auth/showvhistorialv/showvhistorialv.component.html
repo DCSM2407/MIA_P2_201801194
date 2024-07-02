@@ -147,32 +147,30 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Mostrar Autos de Renta</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Historial de Reservas de Vuelos de Viajes</h1>
                 </div>
                 <br><br>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>Usuario</th>
                             <th>Agencia</th>
-                            <th>Marca</th>
-                            <th>Placa</th>
-                            <th>Modelo</th>
-                            <th>Precio</th>
                             <th>Ciudad de Origen</th>
-                            <th>Acciones</th>
+                            <th>Ciudad de Destino</th>
+                            <th>Dias de Vuelos</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let auto of lista_autos">
+                            <td>{{auto.usuario}}</td>
                             <td>{{auto.agencia}}</td>
-                            <td>{{auto.marca}}</td>
-                            <td>{{auto.placa}}</td>
-                            <td>{{auto.modelo}}</td>
+                            <td>{{auto.origen}}</td>
+                            <td>{{auto.destino}}</td>
+                            <td>{{auto.dias}}</td>
                             <td>{{auto.precio}}</td>
-                            <td>{{auto.ciudad}}</td>
-                            <td>
-                                <button (click)="eliminarAuto(auto.placa)" class="btn btn-danger">Eliminar</button>
-                            </td>
+                            <td>{{auto.estado}}</td>
                         </tr>
                     </tbody>
                 </table>

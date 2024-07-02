@@ -88,7 +88,7 @@ const updateEstadoA = async (collec,user) => {
     const coleccion = dbmongo.collection(collec);
     // Convert the result to an array using toArray()
     console.log(user);
-    const data = await coleccion.updateMany({usuario: user}, {$set:{estado: 'aceptado'}});
+    const data = await coleccion.updateOne({usuario: user}, {$set:{estado: 'aceptado'}});
     return data;
     
   } catch (error) {
@@ -113,7 +113,7 @@ const updateEstadoR = async (collec,user) => {
     const coleccion = dbmongo.collection(collec);
     // Convert the result to an array using toArray()
     console.log(user);
-    const data = await coleccion.updateMany({usuario: user}, {$set:{estado: 'rechazado'}});
+    const data = await coleccion.updateOne({usuario: user}, {$set:{estado: 'rechazado'}});
     return data;
     
   } catch (error) {

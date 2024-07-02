@@ -23,6 +23,8 @@ import { ShowreservaatComponent } from './components/auth/showreservaat/showrese
 import { ShowreservavtComponent } from './components/auth/showreservavt/showreservavt.component';
 import { ShowrcrComponent } from './components/auth/showrcr/showrcr.component';
 import { ShowrvrComponent } from './components/auth/showrvr/showrvr.component';
+import { ShowvhistorialcComponent } from './components/auth/showvhistorialc/showvhistorialc.component';
+import { ShowvhistorialvComponent } from './components/auth/showvhistorialv/showvhistorialv.component';
 
 export const routes: Routes = [
     {
@@ -96,5 +98,11 @@ export const routes: Routes = [
     },
     {
         path: 'showturista', component: ShowturistaComponent
+    },
+    {
+        path: 'showhistorialc', component: ShowvhistorialcComponent
+    },
+    {
+        path: 'showhistorialv', component: ShowvhistorialvComponent
     }
 ];

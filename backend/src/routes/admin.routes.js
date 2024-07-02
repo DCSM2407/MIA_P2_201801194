@@ -186,6 +186,8 @@ router.get('/usuariosr', adminController.getDataR);
 router.get('/usuariosa', adminController.getDataA);
 router.get('/showvuelos', adminController.getDataVuelo);
 router.get('/showautos', adminController.getDataAuto);
+router.get('/showreserva1', adminController.getReserva1);
+router.get('/showreserva2', adminController.getReserva2);
 
 
 module.exports = router;

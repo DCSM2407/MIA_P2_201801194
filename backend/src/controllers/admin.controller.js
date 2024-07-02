@@ -223,6 +223,46 @@ const getDataVuelo = async (req, res) => {
     });
 };
 
+const getReserva1 = async (req, res) => {
+    const { coleccion } = req.body;
+    const result = await getData("Reservacar");
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al obtener datos',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Datos obtenidos',
+        data: result
+    });
+};
+
+const getReserva2 = async (req, res) => {
+    const { coleccion } = req.body;
+    const result = await getData("Reservavuelo");
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al obtener datos',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Datos obtenidos',
+        data: result
+    });
+};
+
 const getDataAuto = async (req, res) => {
     const { coleccion } = req.body;
     const result = await getData("Carros");
@@ -694,6 +734,8 @@ module.exports = {
     updateEstado1,
     updateEstado2,
     updateEstado3,
-    updateEstado4
+    updateEstado4,
+    getReserva1,
+    getReserva2,
     
 };

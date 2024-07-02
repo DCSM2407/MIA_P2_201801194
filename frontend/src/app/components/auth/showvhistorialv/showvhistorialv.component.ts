@@ -8,40 +8,41 @@ import { ConsultaService } from '../../../services/consulta.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-showvuelo',
+  selector: 'app-showvhistorialv',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterOutlet, RouterModule],
-  templateUrl: './showvuelo.component.html',
-  styleUrl: './showvuelo.component.scss'
+  templateUrl: './showvhistorialv.component.html',
+  styleUrl: './showvhistorialv.component.scss'
 })
-export class ShowvueloComponent implements OnInit{
-    lista_vuelos: any[] = [];
-    private receivedData = '';
-    usr: string = '';
-    
-    constructor(private route: ActivatedRoute, private http: ConsultaService, private router: Router) {}
+export class ShowvhistorialvComponent  implements OnInit{
+  lista_autos: any[] = [];
+  private receivedData = '';
+  usr: string = '';
   
-    ngOnInit() {
-      this.getVuelos();
-      this.receivedData = this.route.snapshot.paramMap.get('data') ?? '';
-      this.usr = this.receivedData;
-    }
+  constructor(private route: ActivatedRoute, private http: ConsultaService, private router: Router) {}
+
+  ngOnInit() {
+    this.getAutos();
+    this.receivedData = this.route.snapshot.paramMap.get('data') ?? '';
+    this.usr = this.receivedData;
+  }
 
 
-  getVuelos(){
-    this.http.consult_get('/admin/showvuelos').subscribe({
+  getAutos(){
+    this.http.consult_get('/admin/showreserva2').subscribe({
       next: (data: any) => {
         if(data.status){
-          for(const viaje of data.data){
-            const vuelo = {
-              agencia: viaje.agencia,
-              placa: viaje.placa,
-              origen: viaje.origen,
-              destino: viaje.destino,
-              dias: viaje.dias,
-              precio: viaje.precio,
+          for(const car of data.data){
+            const carro = {
+              usuario: car.usuario,
+              agencia: car.agencia,
+              origen: car.origen,
+              destino: car.destino,
+              dias: car.dias,
+              precio: car.precio,
+              estado: car.estado,
             };
-            this.lista_vuelos.push(vuelo);
+            this.lista_autos.push(carro);
           }
         }else{
           alert(data.msg);
@@ -55,7 +56,7 @@ export class ShowvueloComponent implements OnInit{
     });
   }
 
-  eliminarVuelo(placa: any){
+  eliminarAuto(placa: any){
     Swal.fire({
       title: '¿Estás seguro?',
       text: '¿Estás seguro de que deseas eliminar este Auto?',
@@ -65,12 +66,12 @@ export class ShowvueloComponent implements OnInit{
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if(result.isConfirmed){
-        this.http.consult_post('/admin/deletevuelo', {placa}).subscribe({
+        this.http.consult_post('/admin/deletecarro', {placa}).subscribe({
           next: (data: any) => {
             if (data.status) {
-              this.lista_vuelos = this.lista_vuelos.filter((placa) => placa.id !== placa.id);
-              this.getVuelos();
-              Swal.fire('Vuelo eliminado', 'Vuelo eliminado correctamente', 'success');
+              this.lista_autos = this.lista_autos.filter((placa) => placa.id !== placa.id);
+              this.getAutos();
+              Swal.fire('Auto eliminado', 'Auto eliminado correctamente', 'success');
             } else {
               Swal.fire('Error', data.msg, 'error');
               console.error(data);
@@ -86,6 +87,9 @@ export class ShowvueloComponent implements OnInit{
     });
   }
 
+  
+
+  
   navigatecv(){
     this.router.navigate(['crearvuelo',{ data : this.receivedData}]);
   }
@@ -116,6 +120,7 @@ export class ShowvueloComponent implements OnInit{
   navigateShowAdmin(){
     this.router.navigate(['showadmin',{ data : this.receivedData}]);
   }
+  
   navigatereservac(){
     this.router.navigate(['showhistorialc',{ data : this.receivedData}]);
   }
