@@ -53,9 +53,9 @@ export class ReservavueloComponent implements OnInit{
     });
   }
 
-  createReserva(usuario: any, agencia: any, origen: any, destino: any, dias: any, precio:any, estado: any){
+  createReserva(id:any, usuario: any, agencia: any, origen: any, destino: any, dias: any, precio:any, estado: any){
     usuario = this.receivedData;
-    const reserva = {usuario, agencia, origen, destino, dias, precio, estado};
+    const reserva = {id, usuario, agencia, origen, destino, dias, precio, estado};
     this.http.consult_post('/admin/reservavuelo', reserva).subscribe({
       next: (data: any) => {
         if(data.status){

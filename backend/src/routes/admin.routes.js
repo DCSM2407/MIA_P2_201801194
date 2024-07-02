@@ -145,6 +145,41 @@ router.post('/showreservavuelo',
     adminController.getReservaV
 );
 
+router.post('/estado1',
+    [
+        check('usuario', 'El usuario es obligatorio').notEmpty(),
+        validate
+    ], 
+    adminController.updateEstado1
+);
+
+router.post('/estado2',
+    [
+        check('usuario', 'El usuario es obligatorio').notEmpty(),
+        validate
+    ], 
+    adminController.updateEstado2
+);
+
+router.post('/estado3',
+    [
+        check('usuario', 'El usuario es obligatorio').notEmpty(),
+        validate
+    ], 
+    adminController.updateEstado3
+);
+
+router.post('/estado4',
+    [
+        check('usuario', 'El usuario es obligatorio').notEmpty(),
+        validate
+    ], 
+    adminController.updateEstado4
+
+);
+
+router.get('/showrcr', adminController.getDataRAuto);
+router.get('/showrvr', adminController.getDataRVuelo);
 router.get('/userdata', adminController.getDataU);
 router.get('/usuariost', adminController.getDataT);
 router.get('/usuariosr', adminController.getDataR);

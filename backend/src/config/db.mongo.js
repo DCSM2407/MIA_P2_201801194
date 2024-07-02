@@ -52,6 +52,81 @@ const getData = async (collec) => {
   }
 };
 
+const getData1 = async (collec) => {
+  console.log("URI: ", uri);
+  const mongoClient = new MongoClient(uri);
+
+  try {
+    await mongoClient.connect();
+    console.log("Conectado a la base de datos");
+
+    const dbmongo = mongoClient.db(MONGO_DATABASE);
+    const coleccion = dbmongo.collection(collec);
+    // Convert the result to an array using toArray()
+    const data = await coleccion.find({estado: 'pendiente'}).toArray();
+    return data;
+    
+  } catch (error) {
+    console.error("Error getData: ", error);
+    // Consider throwing a custom error object with more details
+    throw new Error('Error fetching data: ' + error.message);
+  } finally {
+    await mongoClient.close();
+    console.log("Desconectado de la base de datos");
+  }
+};
+
+const updateEstadoA = async (collec,user) => {
+  console.log("URI: ", uri);
+  const mongoClient = new MongoClient(uri);
+
+  try {
+    await mongoClient.connect();
+    console.log("Conectado a la base de datos");
+
+    const dbmongo = mongoClient.db(MONGO_DATABASE);
+    const coleccion = dbmongo.collection(collec);
+    // Convert the result to an array using toArray()
+    console.log(user);
+    const data = await coleccion.updateMany({usuario: user}, {$set:{estado: 'aceptado'}});
+    return data;
+    
+  } catch (error) {
+    console.error("Error getData: ", error);
+    // Consider throwing a custom error object with more details
+    throw new Error('Error fetching data: ' + error.message);
+  } finally {
+    await mongoClient.close();
+    console.log("Desconectado de la base de datos");
+  }
+};
+
+const updateEstadoR = async (collec,user) => {
+  console.log("URI: ", uri);
+  const mongoClient = new MongoClient(uri);
+
+  try {
+    await mongoClient.connect();
+    console.log("Conectado a la base de datos");
+
+    const dbmongo = mongoClient.db(MONGO_DATABASE);
+    const coleccion = dbmongo.collection(collec);
+    // Convert the result to an array using toArray()
+    console.log(user);
+    const data = await coleccion.updateMany({usuario: user}, {$set:{estado: 'rechazado'}});
+    return data;
+    
+  } catch (error) {
+    console.error("Error getData: ", error);
+    // Consider throwing a custom error object with more details
+    throw new Error('Error fetching data: ' + error.message);
+  } finally {
+    await mongoClient.close();
+    console.log("Desconectado de la base de datos");
+  }
+};
+
+
 const getDataTurist = async (collec) => {
   console.log("URI: ", uri);
   const mongoClient = new MongoClient(uri);
@@ -380,5 +455,8 @@ module.exports = {
   ReservaA,
   ReservaV,
   getReservaCar,
-  getReservaVuel
+  getReservaVuel,
+  getData1,
+  updateEstadoA,
+  updateEstadoR
 };

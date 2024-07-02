@@ -15,6 +15,9 @@ const { ReservaV } = require('../config/db.mongo');
 const { getDataUser } = require('../config/db.mongo');
 const { getReservaCar } = require('../config/db.mongo');
 const { getReservaVuel } = require('../config/db.mongo');
+const { getData1 } = require('../config/db.mongo');
+const { updateEstadoA } = require('../config/db.mongo');
+const { updateEstadoR } = require('../config/db.mongo');
 
 const registro = async (req, res) => {
     // Recibir los datos enviados desde el cliente
@@ -240,6 +243,46 @@ const getDataAuto = async (req, res) => {
     });
 }; 
 
+const getDataRAuto = async (req, res) => {
+    const { coleccion } = req.body;
+    const result = await getData1("Reservacar");
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al obtener datos',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Datos obtenidos',
+        data: result
+    });
+}; 
+
+const getDataRVuelo = async (req, res) => {
+    const { coleccion } = req.body;
+    const result = await getData1("Reservavuelo");
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al obtener datos',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Datos obtenidos',
+        data: result
+    });
+}; 
+
 const addCarro = async (req, res) => {
     // Recibir los datos enviados desde el cliente
     const { agencia, marca, placa, modelo, precio,ciudad } = req.body;
@@ -415,9 +458,10 @@ const deleteVuelos = async (req, res) => {
 
 const ReservaCar = async (req, res) => {
     // Recibir los datos enviados desde el cliente
-    const { usuario, agencia, marca, modelo, precio, estado } = req.body;
+    const {id, usuario, agencia, marca, modelo, precio, estado } = req.body;
     console.log('Datos recibidos', usuario, agencia, marca, modelo, precio, estado);
     const result = await ReservaA({
+            id,   
             usuario,
             agencia,
             marca,
@@ -448,9 +492,10 @@ const ReservaCar = async (req, res) => {
 
 const ReservaVuelo = async (req, res) => {
     // Recibir los datos enviados desde el cliente
-    const { usuario, agencia, origen, destino, dias, precio, estado } = req.body;
+    const { id, usuario, agencia, origen, destino, dias, precio, estado } = req.body;
     console.log('Datos recibidos', usuario, agencia, origen, destino, dias, precio,);
     const result = await ReservaV({
+            id,
             usuario,
             agencia,
             origen,
@@ -540,6 +585,90 @@ const getDataU = async (req, res) => {
     });
 }
 
+const updateEstado1 = async (req, res) => {
+    const { usuario } = req.body;
+    console.log('Datos recibidos', usuario);
+    const result = await updateEstadoA("Reservacar", usuario);
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al actualizar estado',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Estado actualizado',
+        data: result
+    });
+}
+
+const updateEstado2 = async (req, res) => {
+    const { usuario } = req.body;
+    console.log('Datos recibidos', usuario);
+    const result = await updateEstadoR("Reservacar", usuario);
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al actualizar estado',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Estado actualizado',
+        data: result
+    });
+}
+
+const updateEstado3 = async (req, res) => {
+    const { usuario } = req.body;
+    console.log('Datos recibidos', usuario);
+    const result = await updateEstadoA("Reservavuelo", usuario);
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al actualizar estado',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Estado actualizado',
+        data: result
+    });
+}
+
+const updateEstado4 = async (req, res) => {
+    const { usuario } = req.body;
+    console.log('Datos recibidos', usuario);
+    const result = await updateEstadoR("Reservavuelo", usuario);
+    if(result instanceof Error) {
+        return res.status(500).json(
+            {
+                status: false,
+                msg: 'Error al actualizar estado',
+                data: result
+            });
+    };
+    // Respuesta
+    return res.status(200).json(
+    {
+        status: true,
+        msg: 'Estado actualizado',
+        data: result
+    });
+}
+
 module.exports = {
     registro,
     registror,
@@ -559,5 +688,12 @@ module.exports = {
     ReservaVuelo,
     iniciarSesion,
     getReservaC,
-    getReservaV
+    getReservaV,
+    getDataRAuto,
+    getDataRVuelo,
+    updateEstado1,
+    updateEstado2,
+    updateEstado3,
+    updateEstado4
+    
 };

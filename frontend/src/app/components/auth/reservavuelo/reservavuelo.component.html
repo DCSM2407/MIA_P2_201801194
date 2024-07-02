@@ -112,7 +112,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let vuelo of lista_vuelos">
+                        <tr *ngFor="let vuelo of lista_vuelos; let i = index">
+                            
                             <td>{{vuelo.agencia}}</td>
                             <td>{{vuelo.placa}}</td>
                             <td>{{vuelo.origen}}</td>
@@ -120,7 +121,7 @@
                             <td>{{vuelo.dias}}</td>
                             <td>{{vuelo.precio}}</td>
                             <td>
-                                <button (click)="createReserva('hola',vuelo.agencia,vuelo.origen,vuelo.destino,vuelo.dias,vuelo.precio,'pendiente')" class="btn btn-primary">Reservar</button>
+                                <button (click)="createReserva('RV'+i,'hola',vuelo.agencia,vuelo.origen,vuelo.destino,vuelo.dias,vuelo.precio,'pendiente')" class="btn btn-primary">Reservar</button>
                             </td>
                         </tr>
                     </tbody>

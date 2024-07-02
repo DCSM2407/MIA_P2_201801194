@@ -18,6 +18,7 @@ import Swal from 'sweetalert2';
 export class ReservaautoComponent implements OnInit{
   private receivedData = '';
   usr: string = '';
+  counter = 0;
   lista_autos: any[] = [];
   constructor(private http: ConsultaService, private route: ActivatedRoute, private router: Router) { }
 
@@ -53,9 +54,9 @@ export class ReservaautoComponent implements OnInit{
     });
   }
 
-  createReserva(usuario: any, agencia: any, marca: any, modelo: any, precio: any, estado: any){
+  createReserva(id: any, usuario: any, agencia: any, marca: any, modelo: any, precio: any, estado: any){
     usuario = this.receivedData;
-    const reserva = {usuario, agencia, marca, modelo, precio, estado};
+    const reserva = {id, usuario, agencia, marca, modelo, precio, estado};
     this.http.consult_post('/admin/reservacar', reserva).subscribe({
       next: (data: any) => {
         if(data.status){

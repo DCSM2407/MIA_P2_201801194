@@ -112,7 +112,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let auto of lista_autos">
+                        <tr *ngFor="let auto of lista_autos; let i = index">
+                            
                             <td>{{auto.agencia}}</td>
                             <td>{{auto.marca}}</td>
                             <td>{{auto.placa}}</td>
@@ -120,7 +121,7 @@
                             <td>{{auto.precio}}</td>
                             <td>{{auto.ciudad}}</td>
                             <td>
-                                <button (click)="createReserva('hola', auto.agencia, auto.marca, auto.modelo, auto.precio, 'pendiente')" class="btn btn-primary">Reservar</button>
+                                <button (click)="createReserva('RA'+i,'hola', auto.agencia, auto.marca, auto.modelo, auto.precio, 'pendiente')" class="btn btn-primary">Reservar</button>
                             </td>
                         </tr>
                     </tbody>

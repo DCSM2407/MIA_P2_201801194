@@ -43,7 +43,7 @@ export class LoginComponent {
                 showConfirmButton: false,
                 timer: 2500
               });
-              this.router.navigate(['admin']);
+              this.router.navigate(['admin', { data : this.form_login.value.usuario}]);
             } else if (data.type === 'recepcion') {
 
               Swal.fire({
@@ -53,7 +53,7 @@ export class LoginComponent {
                 showConfirmButton: false,
                 timer: 1500
               });
-              this.router.navigate(['recepcion']);
+              this.router.navigate(['recepcion', { data : this.form_login.value.usuario}]);
             }
           } else {
             Swal.fire({

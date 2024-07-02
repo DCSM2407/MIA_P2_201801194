@@ -21,6 +21,8 @@ import { ReservaautoComponent } from './components/auth/reservaauto/reservaauto.
 import { ReservavueloComponent } from './components/auth/reservavuelo/reservavuelo.component';
 import { ShowreservaatComponent } from './components/auth/showreservaat/showreservaat.component';
 import { ShowreservavtComponent } from './components/auth/showreservavt/showreservavt.component';
+import { ShowrcrComponent } from './components/auth/showrcr/showrcr.component';
+import { ShowrvrComponent } from './components/auth/showrvr/showrvr.component';
 
 export const routes: Routes = [
     {
@@ -58,6 +60,12 @@ export const routes: Routes = [
     },
     {
         path: 'showreservavt', component: ShowreservavtComponent
+    },
+    {
+        path: 'showrvr', component: ShowrvrComponent
+    },
+    {
+        path: 'showrcr', component: ShowrcrComponent
     },
     {
         path: 'crearvuelo', component: CrearvueloComponent

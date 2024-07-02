@@ -25,6 +25,7 @@
         <div class="sidebar-heading">
             Opciones
         </div>
+
         <li class="nav-item">
             <a class="nav-link" (click)="navigateShowrvr()" >
                 <i class="fas fa-book" ></i>
@@ -85,15 +86,37 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <!-- <h1 class="h3 mb-0 text-gray-800">Nuestros Servicios</h1> -->
+                    <h1 class="h3 mb-0 text-gray-800">Historial de Reservas de Vuelos</h1>
                 <br><br><br><br><br><br><br>
                 </div>
-                <div allign="center" width="100%">
-                    <H1 style="text-align: center; font-size: 80px;" Class="mb-0 text-gray-800">BIENVENIDO RECEPCIONISTA</H1>
-                    <br>
-                    <h1 style="text-align: center;">Puede realizar las distintas operaciones del sistema <br>AVICAR </h1>
-                </div>
-                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Agencia</th>
+                            <th>Ciudad de Origen</th>
+                            <th>Ciudad de Destino</th>
+                            <th>Dias de Vuelo</th>
+                            <th>Precio</th>
+                            <th>Estado</th>
+                            <th>Accion</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let auto of lista_autos">
+                            <td>{{auto.usuario}}</td>
+                            <td>{{auto.agencia}}</td>
+                            <td>{{auto.origen}}</td>
+                            <td>{{auto.destino}}</td>
+                            <td>{{auto.dias}}</td>
+                            <td>{{auto.precio}}</td>
+                            <td>{{auto.estado}}</td>
+                            <td><button (click)="estadoAceptado(auto.usuario)" class="btn btn-success" >Aceptar</button></td>
+                            <td><button (click)="estadoRechazado(auto.usuario)" class="btn btn-danger" >Rechazar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
             <!-- /.container-fluid -->

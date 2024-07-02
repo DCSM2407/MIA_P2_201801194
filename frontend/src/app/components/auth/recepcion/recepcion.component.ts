@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ConsultaService } from '../../../services/consulta.service';
-
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-recepcion',
   standalone: true,
@@ -13,43 +13,38 @@ import { ConsultaService } from '../../../services/consulta.service';
   templateUrl: './recepcion.component.html',
   styleUrl: './recepcion.component.scss'
 })
-export class RecepcionComponent  {
+export class RecepcionComponent  implements OnInit{
+  private receivedData = '';
+  usr: string = '';
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
-  constructor(private router: Router) { }
+  ngOnInit() {
+    this.receivedData = this.route.snapshot.paramMap.get('data') ?? '';
+    this.usr = this.receivedData;
+  }
+
+  navigateShowrcr(){
+    this.router.navigate(['showrcr', { data : this.receivedData}]);
+  }
+
+  navigateShowrvr(){
+    this.router.navigate(['showrvr', { data : this.receivedData}]);
+  }
+
   
-  navigatecv(){
-    this.router.navigate(['crearvuelo']);
+  navigateInicio(){
+    Swal.fire({
+      title: '¿Desea cerrar sesión?',
+      icon: 'question',
+      showDenyButton: true,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['']);
+      } else if (result.isDenied) {
+        Swal.fire('Operación cancelada', '', 'info');
+      }
+    });
   }
-  navigateca(){
-    this.router.navigate(['crearauto']);
-  }
-  navigatecr(){
-    this.router.navigate(['crearrecepcion']);
-  }
-  navigatect(){
-    this.router.navigate(['crearturista']);
-  }
-  navigatecau(){
-    this.router.navigate(['crearadmin']);
-  }
-  navigateShowAuto(){
-    this.router.navigate(['showauto']);
-  }
-  navigateShowVuelo(){
-    this.router.navigate(['showvuelo']);
-  }
-  navigateShowRecepcion(){
-    this.router.navigate(['showrecepcion']);
-  }
-  navigateShowTurista(){
-    this.router.navigate(['showturista']);
-  }
-  navigateShowAdmin(){
-    this.router.navigate(['showadmin']);
-  }
-  navigateInicio() {
-    alert("Hasta Pronto Administrador")
-    this.router.navigate(['']);
-  }
-
 }
