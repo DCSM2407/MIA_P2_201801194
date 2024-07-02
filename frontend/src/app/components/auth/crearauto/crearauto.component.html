@@ -1,0 +1,268 @@
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" (click)="navigateInicio()">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-car"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">AVICAR <sup></sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Opciones
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link"  (click)="navigatecv()">
+                <i class="fas fa-plane"></i>
+                <span>Crear Vuelos</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"  (click)="navigateca()">
+                <i class="fas fa-car"></i>
+                <span>Crear Autos de Renta</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  (click)="navigateShowVuelo()">
+                <i class="fas fa-plane-slash"></i>
+                <span>Mostrar Vuelos</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link"  (click)="navigateShowAuto()">
+                <i class="fas fa-car-crash"></i>
+                <span>Mostrar Autos de Renta</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  >
+                <i class="fas fa-book"></i>
+                <span>Ver Historial de Vuelos</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" >
+                <i class="fas fa-book"></i>
+                <span>Ver Historial de Autos</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Complementos
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigatect()">
+                <i class="fas fa-user-plus"></i>
+                <span>Agregar Turista</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigatecr()">
+                <i class="fas fa-user-plus"></i>
+                <span>Agregar Recepcionista</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigatecau()">
+                <i class="fas fa-user-plus"></i>
+                <span>Agregar Administrador</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigateShowTurista()">
+                <i class="fas fa-user-times"></i>
+                <span>Mostrar Turista</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigateShowRecepcion()">
+                <i class="fas fa-user-times"></i>
+                <span>Mostrar Recepcionista</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="navigateShowAdmin()">
+                <i class="fas fa-user-times"></i>
+                <span>Mostrar Administrador</span></a>
+        </li>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <ul class="navbar-nav ml-auto">
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" (click)="navigateInicio()">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Cerrar Sesion
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Crear Auto de Renta</h1>
+                </div>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <br><br>
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-5 d-none d-lg-block bg-register-image">
+
+                                <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <img src="../../../../assets/img/carro1.png" width="80%">
+                            </div>
+                            <div class="col-lg-7">
+                                <br><br>
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">¡ Crea tu Nuevo Auto de Renta !</h1>
+                                        <br><br>
+                                    </div>
+
+                                    <form [formGroup]="form_addCarro" (ngSubmit)="addAuto()" class="user">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="agencia" type="text"
+                                                    class="form-control form-control-user" id="agencia"
+                                                    placeholder="Agencia">
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="marca" type="text"
+                                                    class="form-control form-control-user" id="marca"
+                                                    placeholder="Marca">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="placa" type="text"
+                                                    class="form-control form-control-user" id="placa"
+                                                    placeholder="Placa">
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="modelo" type="text"
+                                                    class="form-control form-control-user" id="modelo"
+                                                    placeholder="Modelo">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="precio" type="text"
+                                                    class="form-control form-control-user" id="precio"
+                                                    placeholder="Precio">
+                                            </div>
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input formControlName="ciudad" type="text"
+                                                    class="form-control form-control-user" id="ciudad"
+                                                    placeholder="Ciudad">
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-user btn-block">
+                                            Agregar Auto de Renta
+                                        </button>
+                                        <hr>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+
+                <!-- Content Row -->
+                <br><br>
+                <br><br>
+                <!-- Content Row -->
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2021</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>

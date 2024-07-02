@@ -37,4 +37,5 @@ export class ConsultaService {
     return this.http.delete(route,{ headers: this.headers });
   }
 
+
 };

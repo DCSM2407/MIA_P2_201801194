@@ -82,7 +82,29 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Renta de Autos Disponibles</h1>
                 </div>
-                
+                <br><br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Agencia</th>
+                            <th>Marca</th>
+                            <th>Placa</th>
+                            <th>Modelo</th>
+                            <th>Precio</th>
+                            <th>Ciudad de Origen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let auto of lista_autos">
+                            <td>{{auto.agencia}}</td>
+                            <td>{{auto.marca}}</td>
+                            <td>{{auto.placa}}</td>
+                            <td>{{auto.modelo}}</td>
+                            <td>{{auto.precio}}</td>
+                            <td>{{auto.ciudad}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <br>
                 <br><br>
             </div>

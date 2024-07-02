@@ -35,15 +35,7 @@ export class RegistroComponent {
       ),
     ]),
   });
-
-  navigateInicio() {
-    this.router.navigate(['']);
-  }
-  navigateLogin() {
-    this.router.navigate(['login']);
-  }
-
-
+  
   registrar(){
     if (this.form_registro.valid) {
       if (this.form_registro.value.password === this.form_registro.value.confirm_password) {
@@ -53,12 +45,12 @@ export class RegistroComponent {
               alert(data.msg);
               this.navigateLogin();
             }else{
-              alert("Error al registrar usuario");
+              alert(data.msg);
               console.error(data);
             }
           },
           error: (error: any) => {
-            alert("Error al registrar usuario");
+            alert(error.error.msg);
             console.error(error);
           },
         });
@@ -68,5 +60,12 @@ export class RegistroComponent {
     }else{
       alert("Faltan campos por llenar");
     }
+  }
+
+  navigateInicio() {
+    this.router.navigate(['']);
+  }
+  navigateLogin() {
+    this.router.navigate(['login']);
   }
 }

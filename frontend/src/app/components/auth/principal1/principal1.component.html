@@ -84,6 +84,28 @@
                 </div>
                 
                 <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Agencia</th>
+                            <th>Placa</th>
+                            <th>Ciudad de Origen</th>
+                            <th>Ciudad de Destino</th>
+                            <th>Dias de Vuelo</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let vuelo of lista_vuelos">
+                            <td>{{vuelo.agencia}}</td>
+                            <td>{{vuelo.placa}}</td>
+                            <td>{{vuelo.origen}}</td>
+                            <td>{{vuelo.destino}}</td>
+                            <td>{{vuelo.dias}}</td>
+                            <td>{{vuelo.precio}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <br><br>
             </div>
             <!-- /.container-fluid -->
