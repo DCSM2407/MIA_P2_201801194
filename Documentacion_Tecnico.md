@@ -94,7 +94,7 @@ Crear usuarios IAM con permisos específicos para manejar servicios de AWS:
 **npm install express body-parser aws-sdk jsonfile**
 
 ### Ejemplo de Código para el Servidor
-
+![Mi Imagen](img/code.png)
 
 ## Implementación del Frontend
 ### Configuración del Entorno
@@ -123,3 +123,17 @@ Crear usuarios IAM con permisos específicos para manejar servicios de AWS:
 **npm start**
 
 ## Capturas de Pantalla y Descripcion
+
+![Mi Imagen](img/17.png)
+
+![Mi Imagen](img/18.png)
+
+![Mi Imagen](img/19.png)
+
+![Mi Imagen](img/20.png)
+
+![Mi Imagen](img/21.png)
+
+![Mi Imagen](img/22.png)
+
+![Mi Imagen](img/23.png)
