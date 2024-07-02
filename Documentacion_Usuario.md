@@ -98,6 +98,52 @@ El usuario turista puede filtrar vuelos y autos por:
 
 ## Capturas de Pantalla y Descripción
 Proporcione capturas de pantalla de las principales funcionalidades y descripciones detalladas para guiar a los usuarios en el uso de la aplicación.
-```
+1. **Pagina principal**
+![Mi Imagen](img/1.png)
 
-Este texto está formateado en Markdown y listo para ser utilizado.
+1. **Vuelos Disponibles**
+![Mi Imagen](img/2.png)
+
+1. **Carros de Renta Disponibles**
+![Mi Imagen](img/3.png)
+
+1. **Inicio de Sesion**
+![Mi Imagen](img/4.png)
+
+1. **Registro **
+![Mi Imagen](img/5.png)
+
+1. **Pagina Principal Administrador**
+![Mi Imagen](img/6.png)
+
+1. **Crear Carros de Renta**
+![Mi Imagen](img/7.png)
+
+1. **PCrear Vuelos de Viajes**
+![Mi Imagen](img/8.png)
+
+1. **Mostrar Vuelos de Viaje**
+![Mi Imagen](img/9.png)
+
+1. **Mostrar Carros de Renta**
+![Mi Imagen](img/10.png)
+
+1. **Mostrar Usuarios Turistas**
+![Mi Imagen](img/11.png)
+
+1. **Pagina principal Recepcionista**
+![Mi Imagen](img/12.png)
+
+1. **Historial de Reservas**
+![Mi Imagen](img/13.png)
+
+1. **Pagina principal de Turista**
+![Mi Imagen](img/14.png)
+
+1. **Vista para Reservas**
+![Mi Imagen](img/15.png)
+
+1. **Listado de Reservas**
+![Mi Imagen](img/16.png)
+
+```
